@@ -62,8 +62,18 @@ pip install streamlit torch transformers pandas
 ```bash
 streamlit run app.py
 ```
+
+MODEL EVALUATION : 
+```
+ACCURACY  : 0.9568
+PRECISION : 0.9736
+RECALL    : 0.9762 
+F1-SCORE  : 0.9749
+```
 LINK STREAMLIT PROJECT :
 https://indonesia-ner-using-bert.streamlit.app/
+
+
 
 
 
