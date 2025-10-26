@@ -62,9 +62,8 @@ pip install streamlit torch transformers pandas
 ```bash
 streamlit run app.py
 ```
-Kemudian buka browser di:
+LINK STREAMLIT PROJECT :
+https://indonesia-ner-using-bert.streamlit.app/
 
-
-http://localhost:8501
 
 
