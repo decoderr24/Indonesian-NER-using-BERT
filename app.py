@@ -7,7 +7,7 @@ import os # <-- Pastikan 'os' di-import
 import pandas as pd 
 
 # --- KONFIGURASI ---
-MODEL_DIR = "Decoder24/indonesian-ner-bert"
+MODEL_DIR = "./fine_tuned_bert_ner" 
 
 # --- FUNGSI UNTUK MEMUAT MODEL ---
 @st.cache_resource
@@ -17,15 +17,14 @@ def load_model_and_tokenizer(model_dir_relative): # <-- ganti nama argumen
     """
     try:
         # --- PERBAIKAN UNTUK STREAMLIT CLOUD ---
-        # Ubah path relatif (misal: "./fine_tuned_bert_ner")
-        # menjadi path absolut (misal: "/mount/src/.../fine_tuned_bert_ner")
-        # Ini mencegah transformers salah mengira path lokal sebagai ID repo Hugging Face
         model_dir_absolute = os.path.abspath(model_dir_relative)
         
-        # Muat model & tokenizer dari path absolut
-        model = BertForTokenClassification.from_pretrained(model_dir_absolute)
-        tokenizer = BertTokenizer.from_pretrained(model_dir_absolute)
-        # --- AKHIR PERBAIKAN ---
+        # --- PERBAIKAN BARU ---
+        # Tambahkan local_files_only=True untuk memaksa transformers
+        # membaca dari folder lokal dan tidak menganggapnya sebagai ID repo.
+        model = BertForTokenClassification.from_pretrained(model_dir_absolute, local_files_only=True)
+        tokenizer = BertTokenizer.from_pretrained(model_dir_absolute, local_files_only=True)
+        # --- AKHIR PERBAIKAN BARU ---
 
         if not hasattr(model.config, 'id2label'):
             st.error("Error: 'id2label' tidak ditemukan di dalam config.json model.")
