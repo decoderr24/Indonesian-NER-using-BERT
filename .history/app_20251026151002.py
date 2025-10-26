@@ -9,6 +9,7 @@ import pandas as pd
 # --- KONFIGURASI ---
 MODEL_DIR = "Decoder24/indonesian-ner-bert"
 
+
 # --- FUNGSI UNTUK MEMUAT MODEL ---
 @st.cache_resource
 def load_model_and_tokenizer(model_dir_relative): # <-- ganti nama argumen
