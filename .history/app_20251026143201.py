@@ -6,6 +6,8 @@ import json
 import os
 import pandas as pd # Kita tambahkan pandas untuk menampilkan tabel
 
+st.write("--- SERVER SUDAH RESTART (VERSI BARU) ---") # <-- TANDA BAHWA FILE BARU BERJALAN
+
 # --- KONFIGURASI ---
 # Pastikan nama folder ini SAMA PERSIS dengan folder model Anda
 MODEL_DIR = "./fine_tuned_bert_ner" 

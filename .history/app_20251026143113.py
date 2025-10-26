@@ -6,6 +6,8 @@ import json
 import os
 import pandas as pd # Kita tambahkan pandas untuk menampilkan tabel
 
+st.write("--- SERVER SUDAH RESTART (VERSI BARU) ---") # <-- TANDA BAHWA FILE BARU BERJALAN
+
 # --- KONFIGURASI ---
 # Pastikan nama folder ini SAMA PERSIS dengan folder model Anda
 MODEL_DIR = "./fine_tuned_bert_ner" 
@@ -98,30 +100,46 @@ def predict(text, model, tokenizer, tag_values, device):
 # --- FUNGSI UNTUK TAMPILAN UI ---
 def display_highlighted_text(results):
     """
-    Menampilkan hasil NER dengan highlight warna untuk entitas.
+    Menampilkan hasil sebagai teks yang di-highlight (UI Menarik)
     """
-    # Template HTML satu baris agar tidak terbaca sebagai teks mentah
-    STYLE = (
-        '<mark style="background-color:#89CFF0; padding:2px 5px; margin:0px 3px; '
-        'border-radius:5px; border:1px solid #008ECC;">{token}'
-        '<sub style="font-size:0.7em; opacity:0.7; margin-left:3px; vertical-align:sub;">'
-        '{label}</sub></mark>'
-    )
-
-    # Mulai HTML container
-    html_output = '<div style="font-size:1.1em; line-height:2.0;">'
-
+    # Definisikan warna untuk entitas. 
+    # Anda bisa tambahkan jika punya banyak tipe entitas.
+    # Di sini kita buat simpel: semua entitas akan berwarna biru muda.
+    STYLE = """
+        <mark style="
+            background-color: #89CFF0; 
+            padding: 2px 5px; 
+            margin: 0px 3px;
+            border-radius: 5px;
+            border: 1px solid #008ECC;
+        ">
+            {token}
+            <sub style="
+                font-size: 0.7em; 
+                opacity: 0.7; 
+                margin-left: 3px;
+                vertical-align: sub;
+            ">
+                {label}
+            </sub>
+        </mark>
+    """
+    
+    html_output = '<div style="font-size: 1.1em; line-height: 2.0;">'
+    
     for token, label in results:
         if label == "O":
+            # Jika 'O' (Outside), tampilkan sebagai teks biasa
             html_output += f" {token}"
         else:
+            # Jika entitas, tampilkan dengan highlight
             html_output += STYLE.format(token=token, label=label)
-
+            
     html_output += "</div>"
-
-    # Render HTML di Streamlit
+    
+    # --- INI ADALAH PERBAIKANNYA ---
+    # Tambahkan unsafe_allow_html=True agar Streamlit merender HTML-nya
     st.markdown(html_output, unsafe_allow_html=True)
-
 
 # --- FUNGSI UTAMA APLIKASI ---
 def main():
