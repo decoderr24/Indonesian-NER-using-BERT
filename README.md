@@ -1,4 +1,5 @@
-﻿# Indonesia Named Entity Recognition (NER) using BERT
+
+ # Indonesia Named Entity Recognition (NER) using BERT
 
 Aplikasi berbasis **Streamlit** untuk mendeteksi entitas bernama (*Named Entity Recognition / NER*) pada teks berbahasa Indonesia menggunakan **BERT (Bidirectional Encoder Representations from Transformers)** yang telah di-*fine-tune*.  
 Proyek ini dirancang untuk kebutuhan analisis teks domain medis, namun dapat dikembangkan untuk domain lain seperti berita, hukum, atau sosial media.
@@ -18,9 +19,9 @@ Proyek ini dirancang untuk kebutuhan analisis teks domain medis, namun dapat dik
 ## 🧠 **Model yang Digunakan**
 Model menggunakan arsitektur **BERT (Bidirectional Encoder Representations from Transformers)** yang telah di-*fine-tune* pada dataset NER Bahasa Indonesia.  
 Struktur folder model:
+
 fine_tuned_bert_ner/
 │
-
 ├── config.json
 
 ├── pytorch_model.bin
@@ -65,4 +66,5 @@ Kemudian buka browser di:
 
 
 http://localhost:8501
+
 
