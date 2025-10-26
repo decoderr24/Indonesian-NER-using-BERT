@@ -20,10 +20,15 @@ Model menggunakan arsitektur **BERT (Bidirectional Encoder Representations from 
 Struktur folder model:
 fine_tuned_bert_ner/
 │
+
 ├── config.json
+
 ├── pytorch_model.bin
+
 ├── tokenizer_config.json
+
 ├── vocab.txt
+
 └── special_tokens_map.json
 
 
@@ -60,3 +65,4 @@ Kemudian buka browser di:
 
 
 http://localhost:8501
+
