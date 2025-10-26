@@ -22,6 +22,7 @@ Struktur folder model:
 
 fine_tuned_bert_ner/
 │
+
 ├── config.json
 
 ├── pytorch_model.bin
@@ -62,9 +63,19 @@ pip install streamlit torch transformers pandas
 ```bash
 streamlit run app.py
 ```
-Kemudian buka browser di:
+
+MODEL EVALUATION : 
+```
+ACCURACY  : 0.9568
+PRECISION : 0.9736
+RECALL    : 0.9762 
+F1-SCORE  : 0.9749
+```
+LINK STREAMLIT PROJECT :
+https://indonesia-ner-using-bert.streamlit.app/
 
 
-http://localhost:8501
+
+
 
 
