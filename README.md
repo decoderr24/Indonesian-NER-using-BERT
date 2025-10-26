@@ -22,6 +22,7 @@ Struktur folder model:
 
 fine_tuned_bert_ner/
 │
+
 ├── config.json
 
 ├── pytorch_model.bin
@@ -72,6 +73,7 @@ F1-SCORE  : 0.9749
 ```
 LINK STREAMLIT PROJECT :
 https://indonesia-ner-using-bert.streamlit.app/
+
 
 
 
